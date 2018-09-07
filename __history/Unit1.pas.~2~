@@ -1,0 +1,123 @@
+unit Unit1;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Vcl.ExtCtrls,
+  Vcl.Imaging.pngimage, System.ImageList, Vcl.ImgList,      Unit2;
+
+type
+TFloorINF = record
+  level: integer;
+  color: string;
+  wayToNextPoint: String;
+  Identifyer:  String;
+
+end;
+PFloorList = ^FloorList;
+FloorList = record
+  Inf: TFloorINF;
+  Adr: PFloorList;
+end;
+
+
+TLevelINF = record
+  wayToNextPoint: String;
+  Identifyer:  String;
+
+end;
+PLevelList = ^LevelList;
+LevelList = record
+  Inf: TLevelINF;
+  Adr: PLevelList;
+  Fadr:PFloorList;
+end;
+
+  TForm1 = class(TForm)
+    Label1: TLabel;
+    Button1: TButton;
+    ImageList1: TImageList;
+    ImageCactus: TImage;
+    Image1: TImage;
+    Button2: TButton;
+    procedure FormCreate(Sender: TObject);
+    procedure Image1Click(Sender: TObject);
+    //procedure createLevelHead(var head: PLevelList);
+   // procedure AddLevelElement(const head: PLevelList; shop: TLevelINF);
+    procedure Button1Click(Sender: TObject);
+    procedure Button2Click(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+      usercolor: string;
+  end;
+
+var
+  Form1: TForm1;
+  username: String;
+  levelhead: PLevelList;
+
+implementation
+
+{$R *.dfm}
+
+procedure createLevelHead(var head: PLevelList);
+begin
+  new(head);
+  head.Adr := nil;
+  head.Inf.wayToNextPoint:='Поздравляем, вы спустились из лифта, осталось не много, пройдите 48 шагов прямо, затем поверните на 45 градусов налево и от свободы вас будет отделять 50м'
+end;
+procedure TForm1.Button1Click(Sender: TObject);
+var
+    Form2: TForm2;
+begin
+    Application.CreateForm(TForm2,Form2);
+    Form2.Caption := 'Какого цвета ваше окружение?';
+    Form2.Show;
+
+
+end;
+
+procedure TForm1.Button2Click(Sender: TObject);
+begin
+ShowMessage(usercolor);
+end;
+
+procedure TForm1.FormCreate(Sender: TObject);
+begin
+createLevelHead(levelhead);
+    button1.Visible:=false;
+//AddLevelElement
+  //repeat
+ // username:=InputBox('Input form','Enter Your name','')
+  //until username<>'' ;
+// Label1.Caption:=
+
+end;
+procedure AddLevelElement(const head: PLevelList; shop: TLevelINF);
+var
+  temp:PLevelList;
+begin
+  temp := head;
+  while temp^.adr <> nil do
+  begin
+    temp := temp^.adr;
+  end;
+  new(temp^.adr);
+  temp:=temp^.adr;
+  temp^.adr:=nil;
+  temp^.Inf := shop;
+end;
+
+procedure TForm1.Image1Click(Sender: TObject);
+begin
+Image1.Visible:=false;
+ ShowMessage('Здравствуй ' +username + '! Если ты читаешь это сообщение, значит ты попала на корабль с пришельцами.'+#10#13+ ' Сбежать с корабля ещё никому не удавалось, но конечно можно попробовать' +#10#13      +
+        'Ответив на несколько вопросов можно идентифицировать местоположение. Главная задача дойти до лифта и использовать ключ, найденный на одной из локаций'+#10#13);
+          button1.Visible:=true;
+
+ end;
+
+end.

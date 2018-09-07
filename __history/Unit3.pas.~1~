@@ -1,0 +1,60 @@
+unit Unit3;
+interface
+type
+TFloorINF = record           //heads for Places
+  Place: integer;
+  color: string;
+  wayToNextPoint: String;
+  Identifyer:  String;
+
+end;
+PFloorList = ^FloorList;
+FloorList = record
+  Inf: TFloorINF;
+  Adr: PFloorList;
+end;
+
+
+TPlaceINF = record
+  wayToNextPoint: String;
+  Identifyer:  String;
+
+end;
+PPlaceList = ^PlaceList; // information about descrete places
+PlaceList = record
+  Inf: TPlaceINF;
+  Adr: PPlaceList;
+  Fadr:PFloorList;
+end;
+
+
+implementation
+procedure AddFloorElement(const head: PPlaceList; place: TPlaceINF);
+var
+  temp:PPlaceList;
+begin
+  temp := head;
+  while temp^.adr <> nil do
+  begin
+    temp := temp^.adr;
+  end;
+  new(temp^.adr);
+  temp:=temp^.adr;
+  temp^.adr:=nil;
+  temp^.Inf := place;
+end;
+procedure AddPlaceElement(const head: PPlaceList; place: TPlaceINF);
+var
+  temp:PPlaceList;
+begin
+  temp := head;
+  while temp^.adr <> nil do
+  begin
+    temp := temp^.adr;
+  end;
+  new(temp^.adr);
+  temp:=temp^.adr;
+  temp^.adr:=nil;
+  temp^.Inf := place;
+end;
+end.

@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>1899.12.30 00:00:00.000.618,C:\Users\User\Documents\Embarcadero\Studio\Projects\Unit1.dfm=C:\Users\User\Documents\GitHub\Lab1_siaod\Unit1.dfm</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.021,C:\Users\User\Documents\Embarcadero\Studio\Projects\Project1.dproj=C:\Users\User\Documents\GitHub\Lab1_siaod\Project1.dproj</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.768,C:\Users\User\Documents\Embarcadero\Studio\Projects\Unit2.dfm=C:\Users\User\Documents\GitHub\Lab1_siaod\Unit2.dfm</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.618,C:\Users\User\Documents\Embarcadero\Studio\Projects\Unit1.pas=C:\Users\User\Documents\GitHub\Lab1_siaod\Unit1.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.064,=C:\Users\User\Documents\Embarcadero\Studio\Projects\Unit2.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.768,C:\Users\User\Documents\Embarcadero\Studio\Projects\Unit2.pas=C:\Users\User\Documents\GitHub\Lab1_siaod\Unit2.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.430,=C:\Users\User\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2018.09.06 22:24:23.917,=C:\Users\User\Documents\GitHub\Lab1_siaod\Unit3.pas</Transaction>
+  </Transactions>
+</BorlandProject>
